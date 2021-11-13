@@ -1,0 +1,144 @@
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css";
+/*  GLOBALS */
+.body-signup{
+    font-size: 16px;
+    height: 100vh;
+    font-family: Helvetica;
+    background-image: url('../img/Background.png');
+    background-color: #003245;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.link{
+    text-decoration: none; /* no underline */
+    font-size: 15px;
+    font-weight: 100;
+    color: #61ea7f;
+    margin: 2rem 0rem;
+}
+.button__text{
+    text-decoration: none;
+}
+
+/*  HEADER  */
+.login__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3% 13% 0% 13%;
+}
+.logo{
+    height: 6rem;
+}
+.language{
+    height: 4rem;
+}
+.sign__in__button{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/*  LOG IN/SIGN IN BOX  */
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.box img{
+    width: 10rem;
+}
+.box h1{
+    color: white;
+    margin: auto 0rem;
+} 
+.box h2{
+    color: white;
+    margin: 2rem 0rem;
+    opacity: 0.35;
+}
+.box input[type = "text"],
+.box input[type = "email"], 
+.box input[type = "password"]{
+    border: 0;
+    background: #0F4A58;
+    display: block;
+    margin: 1.5rem auto;
+    text-align: left;
+    padding: 1rem 2.5rem;
+    width: 24rem;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: white;
+    border-radius: 1.5rem;
+    transition: 0.25s;
+} 
+.box input[type = "password"]{
+    margin-bottom: 0rem;
+}
+.box input[type = "text"]:focus,
+.box input[type = "email"]:focus,  
+.box input[type = "password"]:focus{
+    width: 28rem;
+    border-color: #2ecc71;
+}
+.other__options {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.register{
+    display: flex;
+    justify-content: space-evenly;
+}
+.box label{
+  cursor: pointer;
+  color: white;
+  font-weight: 100; 
+  font-size: 1.5rem;
+  opacity: 0.35;
+
+  margin-right: 3rem;
+}
+.box label input[type = "checkbox"]{
+  display: none;
+}
+.box label input[type = "checkbox"] + .checkbox__text:before{
+  content: "\f096";
+  font-family: "FontAwesome";
+  margin: 0.5rem;
+}
+.box label input[type = "checkbox"]:checked + .checkbox__text:before{
+  content: "\f14a";
+  margin: 0.5rem;
+  color: #61ea7f;
+}
+.social__media{
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+}
+.other__options img{
+    width: 3rem;
+}
+.box input[type = "button"]{
+    border: 0;
+    background: #61ea7f;
+    display: block;
+    margin: 0rem auto;
+    text-align: center;
+    padding: 1.4rem 13rem;
+    outline: none;
+    color: white;
+    border-radius: 1.5rem;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box input[type = "button"]:hover{
+    background: #2ecc71;
+}

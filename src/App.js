@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import {BrowserRouter as Router,Route,Routes,Navigate} from "react-router-dom";
+import {useAuth} from "./contexts/AuthContext"
+import LandingPage from './pages/LandingPage';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import Home from './pages/Home';
 
 function App() {
+  const { currentUser } = useAuth()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Routes>
+          <Route index element={<LandingPage />} />
+          <Route path="signup" element={<Signup />}/>
+          <Route path="login" element={<Login />}/>
+          <Route path="home" element={currentUser?<Home />: <Navigate replace to="/login" />}/>
+        </Routes>
+    </Router>
   );
 }
 
