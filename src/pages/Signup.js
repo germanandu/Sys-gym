@@ -53,9 +53,9 @@ export default function Signup() {
         setLoading(true)
         e.preventDefault();
         if (values.clave === clave2 && values.clave !== '' && values.email !==''&& clave2.length >= 6) {
-          //create_user();
+          create_user();
           console.log(values,gyms)
-          navigate('/');
+          navigate('/home');
         } else {
           alert("Las contraseñas no son iguales / campos sin rellenar/ la constraseña debe ser mayor o igual a 6 caracteres");
         }

@@ -1,0 +1,431 @@
+
+:root{
+    --blue: #287bff;
+    --white: #ffffff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --principal: #003245;
+    --second: #61ea7f;
+    --third: #efeef9;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background: var(--principal);
+    border-left: 10px solid var(--principal);
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navigation.active{
+    width: 80px;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.navigation ul li:hover,
+.navigation ul li.hovered{
+    background: var(--white);
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li a img{
+    margin-top: 7px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
+    color: var(--principal);
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75em;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/*  CURVE OUTSIDE   */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50px;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom : -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50px;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+/*  Main    */
+.main{
+    position: absolute;
+    width: calc(100% - 200px);
+    left: 200px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+.main.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+.search label{
+    position: relative;
+    width: 100%;
+    color: var(--principal);
+}
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 0;
+    background-color: #efeef9;
+}
+.search ion-icon{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+.user{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*  Info    */
+.details2{
+    position: relative;
+    width: 100%;
+    padding: 5px 20px 20px 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 15px;
+}
+.details{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 3fr;
+    grid-gap: 15px;
+}
+.details.affiliates{
+    padding: 5px 20px 20px 20px;
+}
+/*  Cards   */
+.cardBoxContainer{
+    position: relative;
+    display: grid;
+    background: var(--third);
+    padding: 20px;
+    border-radius: 20px;
+}
+.cardBox{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+.cardBox .card{
+    position: relative;
+    background: var(--white);
+    padding: 10px 25px 10px 25px;
+    border-radius: 20px;
+    display: grid;
+    justify-self: center;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+.cardBox .card .cardName{
+    color: var(--principal);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card .iconBx{
+    font-size: 2em;
+    color: var(--black2);
+    justify-self: center;
+}
+.cardBox .card:hover{
+    background: var(--second);
+}
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx{
+    color: var(--white);
+}
+.details .recentOrders{
+    position: relative;
+    display: grid;
+    background: var(--third);
+    padding: 20px;
+    border-radius: 20px;
+}
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cardHeader h2{
+    font-weight: 600;
+    color: var(--second);
+}
+.btn{
+    position: relative;
+    padding: 5px 10px;
+    background: var(--second);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+.details table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.details table thead td{
+    font-weight: 600;
+}
+.details .recentOrders table tr{
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details .recentOrders table tr:last-child{
+    border-bottom: none;
+}
+.details .recentOrders table tbody tr:hover{
+   background: var(--second);
+   color: var(--white);
+}
+.details .recentOrders table tr td{
+    padding: 10px;
+}
+
+.details .recentOrders.machines table tr td:last-child{
+    text-align: start;
+}
+.details .recentOrders.machines table tr td:nth-child(2){
+    text-align: start;
+}
+.details .recentOrders.machines table tr td:nth-child(3),
+.details .recentOrders.machines table tr td:nth-child(4){
+    text-align: center;
+}
+
+.details .recentOrders table tr td:last-child{
+    text-align: end;
+}
+.details .recentOrders table tr td:nth-child(2){
+    text-align: end;
+}
+.details .recentOrders table tr td:nth-child(3){
+    text-align: center;
+}
+.status.income,
+.status.done{
+    padding: 2px 4px;
+    background-color: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.pending{
+    padding: 2px 4px;
+    background-color: #f9ca4f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.outcome,
+.status.overdue{
+    padding: 2px 4px;
+    background-color: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.inprogress{
+    padding: 2px 4px;
+    background-color: #003245;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/*  Right content   */
+.details3{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 67.5% 30%;
+    grid-gap: 15px;
+}
+.details3_finances{
+    position: relative;
+    width: 100%;
+    display: grid;
+}
+.details3_finances .recentCustomers .cardHeader h2,
+.details3 .recentCustomers .cardHeader h2{
+    color: var(--white);
+}
+.recentCustomers{
+    position: relative;
+    display: grid;
+    padding: 20px;
+    background: var(--principal);
+    grid-template-rows: min-content;
+    border-radius: 20px;
+}
+.recentCustomers table{
+    align-self: start;
+}
+.recentCustomers .finances{
+    height: 527px;
+    width: 239px;
+    object-fit: cover;
+    align-self: center;
+    justify-self: center;
+}
+.recentCustomers .storage{
+    height: 250px;
+    width: 301px;
+    object-fit: cover;
+    align-self: center;
+    justify-self: center;
+}
+.recentCustomers .imgBx{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+.recentCustomers .imgBx img{
+    position: absolute;
+}
+.recentCustomers .imgBx img,
+.recentCustomers .finances img,
+.recentCustomers .storage img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.recentCustomers table tr td{
+    padding: 12px 10px;
+}
+.recentCustomers table tr td h4{
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+.recentCustomers table tr td h4 span{
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.719);
+}
+
+
+
