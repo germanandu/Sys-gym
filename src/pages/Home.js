@@ -76,7 +76,7 @@ export default function Home() {
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Still to be paid</h2>
-                            <a href="#" class="btn">View All</a>
+                            <Link to="/finances" class="btn">View All</Link>
                         </div>
                         <table>
                             <thead>
@@ -113,7 +113,7 @@ export default function Home() {
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Recent Payments</h2>
-                            <Link to="/home" class="btn">View All</Link>
+                            <Link to="/finances" class="btn">View All</Link>
                         </div>
                         <table>
                             <thead>
@@ -155,7 +155,7 @@ export default function Home() {
                         </div>
                         <td>
                             <div class="storage">
-                                <img src={imgCloud}/>
+                                <img src={imgCloud} alt="cloud"/>
                             </div>
                         </td>
                     </div>
@@ -165,11 +165,11 @@ export default function Home() {
                         </div>
                         <table>
                             <tr>
-                                <td width="60px"><div class="imgBx"><img src={img1}/></div></td>
+                                <td width="60px"><div class="imgBx"><img src={img1} alt="img1"/></div></td>
                                 <td><h4>Leg Curl<br/><span>Lubrication in 5 days.</span></h4></td>
                             </tr>
                             <tr>
-                                <td width="60px"><div class="imgBx"><img src={img2}/></div></td>
+                                <td width="60px"><div class="imgBx"><img src={img2} alt="img1"/></div></td>
                                 <td><h4>Lat Pull Down<br/><span>Adjust in 7 days.</span></h4></td>
                             </tr>
                         </table>

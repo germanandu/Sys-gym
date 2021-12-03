@@ -10,18 +10,17 @@ export default function Navbar() {
         logout()
     }
     //MenuToggle
-    let toggle = document.querySelector('.toggle');
-    let navigation = document.querySelector('.navigation');
-    let main = document.querySelector('.main');
-
+    
     const onClickToggle = () =>{
+        let navigation = document.querySelector('.navigation');
+        let main = document.querySelector('.main');
         navigation.classList.toggle('active');
         main.classList.toggle('active'); 
     }
     
     return (
         <div className="container">
-            <div class="navigation">
+            <div id="navigation" class="navigation">
                 <ul>
                     <li>
                         <Link to="/home">
@@ -29,43 +28,43 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/">
+                        <Link to="/home">
                             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                             <span class="title">Home</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/">
+                        <Link to="/finances">
                             <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
                             <span class="title">Finances</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/">
+                        <Link to="/machines">
                             <span class="icon"><ion-icon name="barbell-outline"></ion-icon></span>
                             <span class="title">Machines</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/">
+                        <Link to="/affiliates">
                             <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                             <span class="title">Affiliates</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/">
+                        <Link to="/settings">
                             <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
                             <span class="title">Settings</span>
                         </Link>
                     </li>
                 </ul>
             </div>
-            <div className="main">
+            <div id="main" className="main">
                 <div class="topbar">
                     <div class="toggle">
-                        <a onClick={onClickToggle} class="toggle" >
+                        <button className="user" style={{border: "none",}} onClick={onClickToggle} > 
                             <ion-icon name="menu-outline"></ion-icon>
-                        </a>
+                        </button>
                     </div>
                     <h1>{currentUser.email}</h1>
                     <input className="button-g"  onClick={userLogout} type="button" value="Sign out"/> 
