@@ -2,15 +2,15 @@ import React from 'react'
 import imgLogo from '../pages/img/Logo Completo 2.png'
 import './narbar.css'
 import {useAuth} from "../contexts/AuthContext"
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 export default function Navbar() {
     const { currentUser,logout } = useAuth()
     const userLogout = () => {
         logout()
     }
-    //MenuToggle
     
+    //MenuToggle
     const onClickToggle = () =>{
         let navigation = document.querySelector('.navigation');
         let main = document.querySelector('.main');
@@ -23,39 +23,39 @@ export default function Navbar() {
             <div id="navigation" class="navigation">
                 <ul>
                     <li>
-                        <Link to="/home">
+                        <NavLink to="/home">
                             <img src={imgLogo} alt="logo"/>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/home">
+                        <NavLink  to="/home">
                             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                             <span class="title">Home</span>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/finances">
+                        <NavLink  to="/finances">
                             <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
                             <span class="title">Finances</span>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/machines">
+                        <NavLink  to="/machines">
                             <span class="icon"><ion-icon name="barbell-outline"></ion-icon></span>
                             <span class="title">Machines</span>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/affiliates">
+                        <NavLink  to="/affiliates">
                             <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                             <span class="title">Affiliates</span>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/settings">
+                        <NavLink  to="/settings">
                             <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
                             <span class="title">Settings</span>
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
             </div>

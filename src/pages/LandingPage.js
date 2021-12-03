@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import './css/landing.css';
 import img1 from './img/ilustracion1.svg'
 import img2 from './img/ilustracion.svg'
+import germanImg from './img/german.jpeg'
+import pipeImg from './img/pipe.jpeg'
+import grefImg from './img/gref.jpeg'
 
 export default function LandingPage() {
     const stylehero1 = {
@@ -49,7 +52,17 @@ export default function LandingPage() {
             <section className="info">
                 <div className="contenedor">
                     <h2 className="titulo left">Se parte de nuestro equipo!</h2>
-                    <p>Unete a SysGym y tendras increibles descuentos en nuestros servicios</p>
+                    <p>Conoce a nuestro equipo </p>
+                    <article className="galeria-cont2">
+                        <a href="https://www.instagram.com/germananduquia/"><img id="imgGerman" alt="german" src={germanImg} /></a>
+                        <a href="https://www.instagram.com/felipevalencia4/"><img  alt="felipe" src={pipeImg} /></a>
+                        <a href="https://www.instagram.com/sysgym6/"><img  alt="gref" src={grefImg} /></a>
+                    </article>
+                    <div className="galeria-cont2">
+                        <label for="imgGerman">German Anduquia</label>
+                        <label for="felipe">Manuel Felipe Valencia</label>
+                        <label for="gref">Juan David Ramirez</label>
+                    </div>
                 </div>
             </section>
 
@@ -107,7 +120,7 @@ export default function LandingPage() {
 
             <footer id="contacto">
                 <div className="contenedor">
-                    <h2 className="titulo">Contactanos</h2>
+                    <h2 className="titulo">Dejanos tus dudas, comentarios y opiniones</h2>
                     <div action="" className="form">
                         <input className="input"  type="text" name="" id="" placeholder="Nombre"/>
                         <input className="input"  type="email" name="" id="" placeholder="Email"/>

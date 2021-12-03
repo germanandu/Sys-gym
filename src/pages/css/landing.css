@@ -174,7 +174,22 @@ body{
     justify-content: space-evenly;
     overflow: hidden;
 }
-
+.galeria-cont2{
+    position:relative;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+.galeria-cont2>a>img{
+    width: 200px; 
+    height: 250px;
+    box-shadow: 10px 5px 5px black;
+    border-radius: 20% ;
+}
 
 .galeria-cont{
     text-align: center;
