@@ -13,9 +13,9 @@ function App() {
     <Router>
         <Routes>
           <Route index element={<LandingPage />} />
-          <Route path="signup" element={<Signup />}/>
-          <Route path="login" element={<Login />}/>
-          <Route path="home" element={currentUser?<Home />: <Navigate replace to="/login" />}/>
+          <Route path="/signup" element={currentUser?<Navigate replace to="/home" />:<Signup />}/>
+          <Route path="/login" element={currentUser?<Navigate replace to="/home" />:<Login />}/>
+          <Route path="/home" element={currentUser?<Home />: <Navigate replace to="/login" />}/>
         </Routes>
     </Router>
   );

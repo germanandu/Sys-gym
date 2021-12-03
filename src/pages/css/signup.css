@@ -142,3 +142,17 @@
 .box input[type = "button"]:hover{
     background: #2ecc71;
 }
+
+.button-g {
+    border: 0;
+    background: #61ea7f;
+    padding: 1rem 5rem;
+    outline: none;
+    color: white;
+    border-radius: 1.5rem;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.button-g:hover{
+    background: #2ecc71;
+}

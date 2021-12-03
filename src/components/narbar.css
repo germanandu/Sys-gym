@@ -116,10 +116,9 @@
 
 /*  Main    */
 .main{
-    position: absolute;
+    position:sticky;
     width: calc(100% - 200px);
     left: 200px;
-    min-height: 100vh;
     background: var(--white);
     transition: 0.5s;
 }
@@ -219,12 +218,16 @@
 .cardBox{
     position: relative;
     width: 100%;
-    display: grid;
+    display: flex;
+    justify-self: center;
+    justify-content: space-between;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 10px;
 }
 .cardBox .card{
     position: relative;
+    height: min-content;
+    width: min-content;
     background: var(--white);
     padding: 10px 25px 10px 25px;
     border-radius: 20px;
@@ -392,8 +395,10 @@
     height: 250px;
     width: 301px;
     object-fit: cover;
-    align-self: center;
-    justify-self: center;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: calc(100% - 470px);
 }
 .recentCustomers .imgBx{
     position: relative;
