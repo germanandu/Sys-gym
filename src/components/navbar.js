@@ -20,7 +20,7 @@ export default function Navbar() {
     
     return (
         <div className="container">
-            <div id="navigation" class="navigation">
+            <div id="navigation" className="navigation">
                 <ul>
                     <li>
                         <NavLink to="/home">
@@ -29,39 +29,39 @@ export default function Navbar() {
                     </li>
                     <li>
                         <NavLink  to="/home">
-                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                            <span class="title">Home</span>
+                            <span className="icon"><ion-icon name="home-outline"></ion-icon></span>
+                            <span className="title">Home</span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink  to="/finances">
-                            <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
-                            <span class="title">Finances</span>
+                            <span className="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
+                            <span className="title">Finances</span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink  to="/machines">
-                            <span class="icon"><ion-icon name="barbell-outline"></ion-icon></span>
-                            <span class="title">Machines</span>
+                            <span className="icon"><ion-icon name="barbell-outline"></ion-icon></span>
+                            <span className="title">Machines</span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink  to="/affiliates">
-                            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                            <span class="title">Affiliates</span>
+                            <span className="icon"><ion-icon name="people-outline"></ion-icon></span>
+                            <span className="title">Affiliates</span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink  to="/settings">
-                            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                            <span class="title">Settings</span>
+                            <span className="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                            <span className="title">Settings</span>
                         </NavLink>
                     </li>
                 </ul>
             </div>
             <div id="main" className="main">
-                <div class="topbar">
-                    <div class="toggle">
+                <div className="topbar">
+                    <div className="toggle">
                         <button className="user" style={{border: "none",}} onClick={onClickToggle} > 
                             <ion-icon name="menu-outline"></ion-icon>
                         </button>

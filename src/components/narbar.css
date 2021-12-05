@@ -392,13 +392,13 @@
     justify-self: center;
 }
 .recentCustomers .storage{
-    height: 250px;
+    height: auto;
     width: 301px;
     object-fit: cover;
     display:block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: calc(100% - 470px);
+    
 }
 .recentCustomers .imgBx{
     position: relative;
