@@ -1,14 +1,26 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import imgLogo from '../pages/img/Logo Completo 2.png'
 import './narbar.css'
+import {db} from "../firebase"
 import {useAuth} from "../contexts/AuthContext"
 import {NavLink} from 'react-router-dom'
 
 export default function Navbar() {
+    const[cliente,setCliente]=useState([]);
     const { currentUser,logout } = useAuth()
     const userLogout = () => {
         logout()
     }
+    const getGyms = () => {
+        
+        db.collection("gyms").onSnapshot((querySnapshot) =>{
+            querySnapshot.forEach((doc)=>{
+                if (doc.data().email_dueño === currentUser.email) {
+                    setCliente(doc.data());
+                }
+            })
+        });
+    };
     
     //MenuToggle
     const onClickToggle = () =>{
@@ -17,9 +29,11 @@ export default function Navbar() {
         navigation.classList.toggle('active');
         main.classList.toggle('active'); 
     }
-    
+    useEffect(()=>{
+        getGyms();
+     },[]);
     return (
-        <div className="container">
+        <div className="container2">
             <div id="navigation" className="navigation">
                 <ul>
                     <li>
@@ -66,7 +80,7 @@ export default function Navbar() {
                             <ion-icon name="menu-outline"></ion-icon>
                         </button>
                     </div>
-                    <h1>{currentUser.email}</h1>
+                    <h1>{cliente.nombre}</h1>
                     <input className="button-g"  onClick={userLogout} type="button" value="Sign out"/> 
                     
                 </div>

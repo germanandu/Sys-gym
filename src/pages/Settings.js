@@ -3,7 +3,7 @@ import Navbar from '../components/navbar'
 
 export default function Settings() {
     return (
-        <div className="container">
+        <div className="container2">
             <Navbar/>
             <div className="main">
                 <h1>setting</h1>

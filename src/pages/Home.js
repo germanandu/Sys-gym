@@ -7,7 +7,7 @@ import img2 from '../pages/img/img2.png'
 
 export default function Home() {
     return (
-        <div className="container">
+        <div className="container2">
             <Navbar/>
             <div className="main">
             <div className="details2">

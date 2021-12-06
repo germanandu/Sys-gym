@@ -2,16 +2,22 @@ import React, {useState,useEffect} from 'react'
 import Navbar from '../components/navbar'
 import {Link} from 'react-router-dom'
 import {db} from "../firebase"
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Affiliates() {
     const[clientes,setClientes]=useState([]);
+    const {currentUser} = useAuth();
+    const today = new Date()
+    const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
     const getClientes = () => {
         
         db.collection("clientes").onSnapshot((querySnapshot) =>{
             const docs =[];
             querySnapshot.forEach((doc)=>{
+                if (doc.data().gym_email === currentUser.email) {
                 docs.push({...doc.data(), id:doc.id});
+                }
             })
             docs.sort(function(a,b){
                 return a.nombre - b.nombre;
@@ -29,17 +35,18 @@ export default function Affiliates() {
         getClientes();
      },[]);
     return (
-        <div className="container">
+        <div className="container2">
             <Navbar/>
-            <div className="main">
-            <div class="details affiliates">
-                    <div class="recentOrders machines">
-                        <div class="cardHeader">
-                            <h2>May 3rd, 2020</h2>
-                            <Link to="/affiliates/add" class="btn">Add</Link>
+            <div className="container">
+            <div className="details affiliates">
+                    <div className="recentOrders machines">
+                        <div className="cardHeader">
+                            <h2>{date}</h2>
+                            <h2>Clients</h2>
+                            <Link to="/affiliates/add" className="btn">Add</Link>
                         </div>
                         {clientes.map(cliente =>(
-                        <table>
+                        <table key={cliente.id}>
                             <thead>
                                 <tr>
                                     <td>Name</td>
@@ -55,12 +62,12 @@ export default function Affiliates() {
                                 <tr>
                                     <td>{cliente.nombre}</td>
                                     <td>{cliente.codigo}</td>
-                                    <td>{cliente.age}</td>
+                                    <td>{cliente.edad}</td>
                                     <td>{cliente.peso}</td>
                                     <td>{cliente.altura}</td>
                                     <td>{cliente.BMI}</td>
                                     <td>{cliente.fecha_registro}</td>
-                                    <td><Link to={deleteCliente(cliente.id)}><ion-icon name="close-outline"></ion-icon></Link></td>
+                                    <td><button className="btn btn-danger" onClick={()=>deleteCliente(cliente.id)}>Delete</button></td>
                                 </tr>
                             </tbody>
                         </table>

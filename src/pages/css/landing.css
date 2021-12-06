@@ -243,8 +243,8 @@ footer{
     font-family: 'raleway', 'sans-serif';
 }
 
-input[type="text"], 
-input[type="email"]{
+.input[type="text"], 
+.input[type="email"]{
     display: inline-block;
     width: 49%;
     margin-bottom: 30px;

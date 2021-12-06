@@ -11,6 +11,7 @@ import Machines from './pages/Machines';
 import Affiliates from './pages/Affiliates';
 import Settings from './pages/Settings';
 import AddAffiliate from './pages/AddAffiliate';
+import AddMachines from './pages/AddMachines';
 
 function App() {
   const { currentUser } = useAuth()
@@ -23,6 +24,7 @@ function App() {
           <Route path="home" element={currentUser?<Home />: <Navigate replace to="/login" />}/>
           <Route path="finances" element={currentUser?<Finances />: <Navigate replace to="/login" />}/>
           <Route path="machines" element={currentUser?<Machines />: <Navigate replace to="/login" />}/>
+          <Route path="machines/add" element={currentUser?<AddMachines />: <Navigate replace to="/login" />}/>
           <Route path="affiliates" element={currentUser?<Affiliates />: <Navigate replace to="/login" />}/>
           <Route path="affiliates/add" element={currentUser?<AddAffiliate />: <Navigate replace to="/login" />}/>
           <Route path="settings" element={currentUser?<Settings />: <Navigate replace to="/login" />}/>
