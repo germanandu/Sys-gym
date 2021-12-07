@@ -301,7 +301,9 @@
 .details .recentOrders table tr td{
     padding: 10px;
 }
-
+.details .recentOrders.machines table tbody td{
+    width: 200px;
+}
 .details .recentOrders.machines table tr td:last-child{
     text-align: start;
 }
@@ -436,6 +438,15 @@
 .row{
     margin-top: 20px;
 }
-
+.cardBoxSettings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+.cardBoxSettings input{
+    margin-top: 20px;
+}
 
 

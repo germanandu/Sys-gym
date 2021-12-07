@@ -5,10 +5,12 @@ import {db} from "../firebase"
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Machines() {
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const {currentUser} = useAuth();
     const[maquinas,setMaquinas]=useState([]);
     const[nextMainteinance,setNextMainteinance]=useState('');
     const today = new Date()
+    var dayName = days[today.getDay()];
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     
     function sumasDias(fecha,dias){
@@ -55,7 +57,7 @@ export default function Machines() {
                     
                     <div class="recentOrders machines">
                         <div class="cardHeader">
-                            <h2>{date}</h2>
+                            <h2>{dayName} {date}</h2>
                             <h2>Machines</h2>
                             <Link to="/machines/add" class="btn">Add</Link>
                         </div>
@@ -68,6 +70,7 @@ export default function Machines() {
                                     <td>Last Mainteinance</td>
                                     <td>Next Mainteinance</td>
                                     <td>About</td>
+                                    <td>Action</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -76,7 +79,10 @@ export default function Machines() {
                                     <td>{maquina.ultimo_mantenimiento}</td>
                                     <td>{maquina.proximo_mantenimiento}</td>
                                     <td>{maquina.descripcion}</td>
-                                    <td><button className="btn btn-danger" onClick={()=>deleteMaquina(maquina.id)}>Delete</button></td>
+                                    <td>
+                                        <Link className="btn btn-primary" to={`/machines-edit/${maquina.id}`}>Editar</Link>
+                                        <button className="btn btn-danger" onClick={()=>deleteMaquina(maquina.id)}>Delete</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

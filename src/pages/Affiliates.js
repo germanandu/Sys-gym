@@ -5,9 +5,11 @@ import {db} from "../firebase"
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Affiliates() {
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const[clientes,setClientes]=useState([]);
     const {currentUser} = useAuth();
     const today = new Date()
+    var dayName = days[today.getDay()];
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
     const getClientes = () => {
@@ -25,7 +27,6 @@ export default function Affiliates() {
             setClientes(docs);
         });
     };
-
     const deleteCliente = async( id)=>{
         if (window.confirm('Estas seguro que deseas eliminar este cliente ?')){
              await db.collection('clientes').doc(id).delete();
@@ -41,7 +42,7 @@ export default function Affiliates() {
             <div className="details affiliates">
                     <div className="recentOrders machines">
                         <div className="cardHeader">
-                            <h2>{date}</h2>
+                            <h2>{dayName} {date}</h2>
                             <h2>Clients</h2>
                             <Link to="/affiliates/add" className="btn">Add</Link>
                         </div>
@@ -56,6 +57,7 @@ export default function Affiliates() {
                                     <td>Height</td>
                                     <td>BMI</td>
                                     <td>Subscription</td>
+                                    <td>Action</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,7 +69,10 @@ export default function Affiliates() {
                                     <td>{cliente.altura}</td>
                                     <td>{cliente.BMI}</td>
                                     <td>{cliente.fecha_registro}</td>
-                                    <td><button className="btn btn-danger" onClick={()=>deleteCliente(cliente.id)}>Delete</button></td>
+                                    <td>
+                                        <Link className="btn btn-primary" to={`/affiliates-edit/${cliente.id}`}>Editar</Link>
+                                        <button className="btn btn-danger" onClick={()=>deleteCliente(cliente.id)}>Delete</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
