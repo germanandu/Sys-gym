@@ -30,7 +30,7 @@ export default function Navbar() {
         main.classList.toggle('active'); 
     }
     useEffect(()=>{
-        getGyms();
+        getGyms(); // eslint-disable-next-line
      },[]);
     return (
         <div className="container2">

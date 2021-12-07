@@ -23,12 +23,17 @@ export default function Finances() {
             const docs =[];
             querySnapshot.forEach((doc)=>{
                 if (doc.data().gym_email === currentUser.email) {
+                    let estadoAct = true
                     let lastDate = new Date(doc.data().fecha_registro)
                     lastDate = sumasDias(lastDate,+30)
                     const dateFinal = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
+                    if(today>lastDate){
+                        estadoAct = false
+                    }
                     let elements = {
                         id:doc.id,
-                        proximo_pago: dateFinal
+                        proximo_pago: dateFinal,
+                        estado: estadoAct
                     }
                     docs.push({...doc.data(), ...elements});
                 }
@@ -41,7 +46,7 @@ export default function Finances() {
     };
     
     useEffect(()=>{
-        getClientes();
+        getClientes(); // eslint-disable-next-line
      },[]);
     return (
         <div className="container2">
@@ -72,9 +77,9 @@ export default function Finances() {
                                     <td>{cliente.nombre}</td>
                                     <td>{cliente.fecha_registro}</td>
                                     <td>{cliente.proximo_pago}</td>
-                                    <td>{cliente.estado?<span className="status done">Done</span>:<span className="status pending">Pending</span>}</td>
+                                    <td>{cliente.estado?<span className="status done">Done</span>:<span className="status overdue">Overdue</span>}</td>
                                     <td>
-                                        <Link className="btn btn-primary" to={`/affiliates-edit-status/${cliente.id}`}>Editar</Link>
+                                        <Link className="btn btn-primary" to={`/affiliates-edit-status/${cliente.id}`}>Edit</Link>
                                     </td>
                                 </tr>
                             </tbody>

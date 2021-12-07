@@ -33,7 +33,7 @@ export default function Affiliates() {
         }
      }
     useEffect(()=>{
-        getClientes();
+        getClientes(); // eslint-disable-next-line
      },[]);
     return (
         <div className="container2">
@@ -70,7 +70,7 @@ export default function Affiliates() {
                                     <td>{cliente.BMI}</td>
                                     <td>{cliente.fecha_registro}</td>
                                     <td>
-                                        <Link className="btn btn-primary" to={`/affiliates-edit/${cliente.id}`}>Editar</Link>
+                                        <Link className="btn btn-primary" to={`/affiliates-edit/${cliente.id}`}>Edit</Link>
                                         <button className="btn btn-danger" onClick={()=>deleteCliente(cliente.id)}>Delete</button>
                                     </td>
                                 </tr>

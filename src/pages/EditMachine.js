@@ -40,7 +40,7 @@ export default function EditMachine() {
 
         db.collection("maquinas").onSnapshot((querySnapshot) =>{
             querySnapshot.forEach((doc)=>{
-                if (doc.id == keyword) {
+                if (doc.id === keyword) {
                     setValues(doc.data());
                 }
             })
@@ -48,7 +48,7 @@ export default function EditMachine() {
     };
 
     useEffect(()=>{
-        getMachines();
+        getMachines(); // eslint-disable-next-line
      },[]);
     return (
         <div>

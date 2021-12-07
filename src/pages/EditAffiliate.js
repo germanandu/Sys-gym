@@ -45,7 +45,7 @@ export default function EditAffiliate() {
 
         db.collection("clientes").onSnapshot((querySnapshot) =>{
             querySnapshot.forEach((doc)=>{
-                if (doc.id == keyword) {
+                if (doc.id === keyword) {
                     setValues(doc.data());
                 }
             })
@@ -53,7 +53,7 @@ export default function EditAffiliate() {
     };
 
     useEffect(()=>{
-        getClientes();
+        getClientes(); // eslint-disable-next-line
      },[]);
     return (
         <div className="container2">

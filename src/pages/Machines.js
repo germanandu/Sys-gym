@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Navbar from '../components/navbar'
-import {Link,useNavigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {db} from "../firebase"
 import { useAuth } from '../contexts/AuthContext';
 
@@ -8,7 +8,6 @@ export default function Machines() {
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const {currentUser} = useAuth();
     const[maquinas,setMaquinas]=useState([]);
-    const[nextMainteinance,setNextMainteinance]=useState('');
     const today = new Date()
     var dayName = days[today.getDay()];
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -46,7 +45,7 @@ export default function Machines() {
         }
      }
      useEffect(()=>{
-        getMaquinas();
+        getMaquinas(); // eslint-disable-next-line
      },[]);
     return (
         <div className="container2">
@@ -80,7 +79,7 @@ export default function Machines() {
                                     <td>{maquina.proximo_mantenimiento}</td>
                                     <td>{maquina.descripcion}</td>
                                     <td>
-                                        <Link className="btn btn-primary" to={`/machines-edit/${maquina.id}`}>Editar</Link>
+                                        <Link className="btn btn-primary" to={`/machines-edit/${maquina.id}`}>Edit</Link>
                                         <button className="btn btn-danger" onClick={()=>deleteMaquina(maquina.id)}>Delete</button>
                                     </td>
                                 </tr>
