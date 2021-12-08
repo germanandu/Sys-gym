@@ -50,7 +50,7 @@ export default function Machines() {
     return (
         <div className="container2">
             <Navbar/>
-            <div className="container">
+            <div className="main">
             
                 <div class="details affiliates">
                     
