@@ -118,6 +118,7 @@
 .main{
     color: #003245;
     position:sticky;
+    padding: 30px;
     width: calc(100% - 200px);
     left: 200px;
     background: var(--white);
@@ -125,7 +126,7 @@
 }
 .main.active{
     width: calc(100% - 110px);
-    left: 110px;
+    
 }
 .topbar{
     width: 100%;

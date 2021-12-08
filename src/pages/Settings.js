@@ -11,7 +11,7 @@ export default function Settings() {
     return (
         <div className="container2">
             <Navbar/>
-            <div className="container">
+            <div className="main">
                 <div class="details affiliates">
                     <div class="recentOrders machines">
                         <div class="cardHeader">
