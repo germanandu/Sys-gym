@@ -45,7 +45,7 @@ export default function EditFinances() {
     return (
         <div className="container2">
             <Navbar/>
-            <div className="container">
+            <div className="main">
                 <div className="details">
                     <div className="recentOrders">
                         <div className="cardHeader">

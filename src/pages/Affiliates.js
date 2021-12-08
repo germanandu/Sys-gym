@@ -38,7 +38,7 @@ export default function Affiliates() {
     return (
         <div className="container2">
             <Navbar/>
-            <div className="container">
+            <div className="main">
             <div className="details affiliates">
                     <div className="recentOrders machines">
                         <div className="cardHeader">
