@@ -19,7 +19,7 @@ export default function Settings() {
                         </div>
                         <div className="cardBoxSettings">
                             <Link className="button-g" to="/">About us</Link>
-                            <input className="button-g"  onClick={userLogout} type="button" value="Edit Gym"/>
+                            <Link className="button-g"  to="/settings/edit-gym" type="button">Edit Gym</Link>
                             <input className="button-g"  onClick={userLogout} type="button" value="Sign out"/>
                         </div>
                     </div>

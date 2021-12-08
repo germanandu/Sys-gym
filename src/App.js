@@ -15,6 +15,7 @@ import AddMachines from './pages/AddMachines';
 import EditAffiliate from './pages/EditAffiliate';
 import EditMachine from './pages/EditMachine';
 import EditFinances from './pages/EditFinances';
+import EditGym from './pages/EditGym';
 
 function App() {
   const { currentUser } = useAuth()
@@ -34,6 +35,7 @@ function App() {
           <Route path="affiliates-edit/:keyword" element={currentUser?<EditAffiliate />: <Navigate replace to="/login" />}/>
           <Route path="affiliates-edit-status/:keyword" element={currentUser?<EditFinances />: <Navigate replace to="/login" />}/>
           <Route path="settings" element={currentUser?<Settings />: <Navigate replace to="/login" />}/>
+          <Route path="settings/edit-gym" element={currentUser?<EditGym />: <Navigate replace to="/login" />}/>
         </Routes>
     </Router>
   );

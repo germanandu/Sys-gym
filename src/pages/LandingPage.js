@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, {useState} from 'react'
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../contexts/AuthContext';
 import './css/landing.css';
 import img1 from './img/ilustracion1.svg'
 import img2 from './img/ilustracion.svg'
@@ -24,6 +25,34 @@ export default function LandingPage() {
         stroke: 'none',
          fill: '#054758'
     }
+    const {createCollection} = useAuth();
+    const initialStateValues = {
+        nombre: '',
+        email: '',
+        descripcion: ''
+    };
+    const [values, setValues] = useState(initialStateValues);
+    const navigate = useNavigate();
+
+    const createMensaje= () => {
+        createCollection(values,'mensajes');
+    }
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setValues({ ...values, [name]: value });
+    };
+
+    const handlesubmit  =  (e) => {
+        e.preventDefault();
+        if (window.confirm('Estas seguro que deseas enviar este mensaje ?')){
+            createMensaje();
+            console.log(values)
+            navigate('/');
+        } else {
+          alert("Campos sin rellenar");
+        }
+        setValues({ ...initialStateValues });
+    };
     return (
         <div className="body">
             <header className="hero">
@@ -122,10 +151,10 @@ export default function LandingPage() {
                 <div className="contenedor">
                     <h2 className="titulo">Dejanos tus dudas, comentarios y opiniones</h2>
                     <div action="" className="form">
-                        <input className="input"  type="text" name="" id="" placeholder="Nombre"/>
-                        <input className="input"  type="email" name="" id="" placeholder="Email"/>
-                        <textarea  className="input" name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
-                        <input className="input"  type="submit" value="Enviar"/>
+                        <input className="input" onChange={handleInputChange} value={values.nombre} type="text" name="nombre" placeholder="Nombre" />
+                        <input className="input"  onChange={handleInputChange} value={values.email} type="text" name="email"  placeholder="Email"/>
+                        <textarea  className="input" onChange={handleInputChange} value={values.descripcion} cols="30" rows="10"  name="descripcion" placeholder="Mensaje" />
+                        <input className="input" onClick={handlesubmit}  type="submit" value="Enviar"/>
                     </div>
                 </div>
             </footer>
